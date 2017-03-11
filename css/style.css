@@ -1,0 +1,188 @@
+html,body{
+	margin:0;
+	padding:0;
+	width: 100%;
+	height: 100%;
+	color:#333;
+	font-family: "Microsoft Yahei",tahoma,arial,"Hiragino Sans GB";
+}
+ul,li,p,h1{
+	margin:0;
+	padding:0;
+}
+li{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+}
+.clearfix:after{
+	content: "";
+	display: block;
+	clear: both;
+}
+.main{
+	margin-left: 255px;
+}
+.wrap{
+	width: 90%;
+	margin:40px auto;
+}
+aside{
+	position: fixed;
+	top:0;
+	left: 0;
+	bottom: 0;
+	width: 185px;
+	padding:50px 35px 0;
+	background: #123555;
+}
+aside .header-img{
+	display: block;
+	text-align: center;
+	border-radius: 50%;
+}
+aside h1{
+	text-align: center;
+	margin: 20px auto;
+	font: 30px 宋体;
+	color:#fff;
+
+}
+aside h1:hover{
+	color:#f60;
+	cursor:pointer;
+}
+aside .menu{
+	color:#fff;
+	overflow: hidden;
+}
+aside .menu li{
+	margin-top:20px;
+}
+aside .menu .num{
+	font-size: 14px;
+	margin-right: 5px;
+	color:#7f7f7f;
+}
+aside .menu .text{
+	color:#fff;
+}
+aside .menu .text:hover{
+	color:#f60;
+}
+aside .bottom{
+	position: absolute;
+	bottom: 20px;
+}
+aside .bottom .link-list{
+	margin-bottom: 10px;
+}
+aside  .icon{
+	position: relative;
+	float: left;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	margin:3px;
+	text-align: center;
+	border-radius: 50%;
+	background: #fff;
+}
+aside  .icon .cover{
+	position: absolute;
+	left: 0;
+	top:0;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	background: rgba(0,0,0,.3);
+}
+aside  .icon:hover .cover{
+	background: rgba(0,0,0,0);
+}
+aside  .icon.jianshu{
+	background: #ea6f5a;
+	color:#fff;
+}
+aside  .icon.github{
+	background: #fff;
+	color:#000;
+}
+aside  .icon.qq{
+	background:#d1484f;
+	color: #fff;
+}
+aside  .icon.email{
+	background: #00ab6c;
+	color:#fff;
+	line-height: 45px;
+}
+aside .note{
+	color:#999;
+	font-size: 14px;
+}
+aside .note a{
+	color:#999;
+}
+.information{
+	height: 100%;
+	margin-left: 255px;
+}
+.information p{
+	margin-left: 20px;
+	width: 50%;
+}
+.works a{
+	position: relative;
+	float: left;
+	width: 50%;
+	outline: 2px solid #fff;
+}
+.works a .cover{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0 ,.3);
+}
+.works  img{
+	width: 100%;
+}
+.works .title{
+	position: absolute;
+	top:50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	font-size: 30px;
+	color:#fff;
+	transition: all .3s;
+}
+.works .desc{
+	position: absolute;
+	top:40%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	font-size: 16px;
+	color:#fff;
+	opacity: 0;
+	transition: all .6s ease-out;
+}
+.works a:nth-child(1):hover .cover{
+	background: rgba(3,54,73,.6);
+}
+.works a:nth-child(2):hover .cover{
+	background: rgba(205,179,128,.6);
+}
+.works a:nth-child(3):hover .cover{
+	background: rgba(230,155,3,.6);
+}
+.works a:nth-child(4):hover .cover{
+	background: rgba(209,73,78,.6);
+}
+.works a:hover .title{
+	top: 40%;
+}
+.works a:hover .desc{
+	top: 50%;
+	opacity: 1;
+}
