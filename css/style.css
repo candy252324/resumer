@@ -161,6 +161,7 @@ aside .note a{
 	position: absolute;
 	top:40%;
 	left: 50%;
+	width: 80%;
 	transform: translate(-50%,-50%);
 	font-size: 16px;
 	color:#fff;
@@ -183,6 +184,6 @@ aside .note a{
 	top: 40%;
 }
 .works a:hover .desc{
-	top: 50%;
+	top: 60%;
 	opacity: 1;
 }
