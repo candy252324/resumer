@@ -13,10 +13,10 @@
 		</a>
 		<h1>陈加欢</h1>
 		<ul class="menu">
-			<li><span class="num">01</span><a class="text" href="javascript:">个人信息</a></li>
-			<li><span class="num">02</span><a class="text" href="javascript:">作品清单</a></li>
-			<li><span class="num">03</span><a class="text" href="javascript:">工作技能</a></li>
-			<li><span class="num">04</span><a class="text" href="javascript:">联系方式</a></li>
+			<li class="information-nav active-nav"><span class="num">01</span><a class="text" href="javascript:">个人信息</a></li>
+			<li class="works-nav"><span class="num">02</span><a class="text" href="javascript:">作品清单</a></li>
+			<li class="skills-nav"><span class="num">03</span><a class="text" href="javascript:">能力技能</a></li>
+			<li class="contact-nav"><span class="num">04</span><a class="text" href="javascript:">联系方式</a></li>
 		</ul>
 
 		<div class="bottom">
@@ -38,7 +38,7 @@
 					<div class="cover"></div>
 				</a>
 			</div>
-			<p class="note">Open source: <a href="javascript:">GitHub</a></p>
+			<p class="note">Open source: <a class="project-adress" href="https://candy252324.github.io/resumer/index.html" target="_blank">GitHub</a></p>
 			<p class="note">© copyright CandyChan,2017</p>
 
 		</div>
@@ -56,8 +56,7 @@
 			<p>学历专业</p>
 			<p>目标城市</p>
 			<p>联系电话</p>
-			<p>我是一个性格幽默、做事认真，热爱运动的人。 我喜欢研究所碰到的各种技术，热衷解决碰到的任何程序问题，不给自己设边界，有 Geek 精神。我有时间概念，能在约定时间内保证完成任务。 
-	我正在寻找一家公司希望加入一个以技术为驱动，从事前端开发工作，并且可以提升大型项目的驾驭能力，希望新工作有成长空间，技术上有挑战性，技术氛围够Geek，使人有成就感的互联网公司。</p>
+			<p class="typer"></p>
 		</div>
 	</div>
 
@@ -70,29 +69,49 @@
 				<span class="title">某商城首页</span>
 				<span class="desc">仿某商城项目，高精度还原，主要运用 html, css, jquery, js, webpack</span>
 			</a>
-			<a href="https://candy252324.github.io/todoList/page.html">
+			<a href="https://candy252324.github.io/todoList/index.html" target="_blank">
 				<div class="cover"></div>
-				<img src="./img/5.png">
+				<img src="./img/todolist.png">
 				<span class="title">todoList</span>
 				<span class="desc">一个简洁的todoList,可注册多个账号，记录待办事项，主要运用vue</span>
 			</a>
-			<a href="javascript:">
+			<a href="https://candy252324.github.io/Rotating-DNA/index.html" target="_blank">
 				<div class="cover"></div>
-				<img src="./img/5.png">
+				<img src="./img/dna.png">
 				<span class="title">苏宁首页</span>
 				<span class="desc">一个漂亮的登陆框</span>
 			</a>
-			<a href="javascript:">
+			<a href="https://github.com/candy252324/JS-component/tree/master/js/com" target="_blank">
 				<div class="cover"></div>
-				<img src="./img/5.png">
+				<img src="./img/component.png">
 				<span class="title">苏宁首页</span>
 				<span class="desc">一个漂亮的登陆框</span>
 			</a>
 		</div>
 
 		<h1 class="wrap">技能</h1>
-		<div class="skills wrap">
-			
+
+		<div class="skills">
+			<div class="wrap">
+				<div class="echarts"></div>
+			</div>
+			<div class="content clearfix">
+				<ul>能力技能
+					<li>熟悉使用PhotoShop切图，像素级重构，可准确还原设计</li>
+					<li>熟悉HTML、CSS、页面架构和布局，对Web标准和标签语义化有深入理解</li>
+					<li>熟悉Ajax、JavaScript、jQuery、JSON等前端技术，掌握面向对象编程思想</li>
+					<li>了解ECMA5的标签规范以及HTML5新标签及CSS3样式及动画</li>
+					<li>能够产出兼容于目前主流浏览器的前端页面</li>
+				</ul>
+				<ul>优势特长
+					<li>了解Bootstrap、less、ECharts、React等前端框架工具</li>
+					<li>良好的代码风格，对自己代码质量有高要求，注释清晰</li>
+					<li>良好的逻辑思维能力和团队合作能力，有快速分析和解决问题的能力</li>
+					<li>有解决问题、钻研新技术的兴趣和能力，善于交流和表达</li>
+					<li>了解掌握浏览器的调试，可快速寻找bug</li>
+				</ul>
+			</div>
+
 		</div>
 			
 		<h1 class="wrap">联系方式</h1>
@@ -101,6 +120,5 @@
 	
 	<script type="text/javascript" src="./dist/bundle.js"></script>
 	
-
 </body>
 </html>
