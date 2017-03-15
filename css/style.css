@@ -362,7 +362,7 @@ aside .project-address{
 	width: 80%;
 	transform: translate(-50%,-50%);
 	z-index: 2;
-	font-size: 12px;
+	font-size: 16px;
 	line-height: 16px;
 	color:#fff;
 	opacity: 0;
@@ -429,6 +429,9 @@ aside .project-address{
 @media(max-width: 1200px){
 	.information p{
 		width: 80%;
+	}
+	.works .desc{
+		font-size: 14px;
 	}
 }
 @media(max-width: 992px){
@@ -576,18 +579,19 @@ aside .project-address{
 	}
 	.works a{
 		padding: 35px 0;
-		border-bottom:2px solid #000;
 		border:none;
+		border-bottom:2px solid #000;
 	}
 	.works a:last-child{
 		margin-bottom: 0px;
+		border-bottom:none;
 	}
 	.works .title{
 		display: block;
 		position: static;
 		transform: none;
 		font-size: 20px;
-		color:#333;
+		color:#666;
 	}
 	.works .desc{
 		display: block;
@@ -595,7 +599,7 @@ aside .project-address{
 		margin:8px 0;
 		transform: none;
 		font-size: 12px;
-		color:#333;
+		color:#666;
 		opacity: 1;
 	}
 	.skills .content .item{
