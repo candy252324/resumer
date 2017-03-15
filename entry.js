@@ -6,7 +6,11 @@ var $=require ("./js/lib/jquery.min.js")
 var Echarts=require ("./js/com/echarts.min.js")
 
 
-var s = '我是一个性格幽默、做事认真，热爱运动的人。 我喜欢研究所碰到的各种技术，热衷解决碰到的任何程序问题，不给自己设边界，有 Geek 精神。我有时间概念，能在约定时间内保证完成任务。 我正在寻找一家公司希望加入一个以技术为驱动，从事前端开发工作，并且可以提升大型项目的驾驭能力，希望新工作有成长空间，技术上有挑战性，技术氛围够Geek，使人有成就感的互联网公司。';
+var s = '我是一个热爱运动，有责任心的人。 工作中能独当一面，也能承受工作中的压力。'
+		+'喜欢研究所碰到的各种技术问题，不给自己设边界。'
+		+'并且执行力强，有新的想法就马上付诸行动去实现。'
+		+'我有时间概念，能在约定时间内保证完成任务。'+
+		'希望在一个以技术为驱动、有成长空间的公司里从事前端开发工作，不断迎接技术上的挑战，提升自己驾驭大型项目的能力。';
 		var con = $('.typer');
 		var index = 0;
 		var length = s.length;
@@ -25,27 +29,13 @@ var s = '我是一个性格幽默、做事认真，热爱运动的人。 我喜�
 
 		start();
 
-// var Carousel=require("./js/com/carousel.js"),
-// 	GoTop=require("./js/com/gotop.js"),
-// 	Exposure=require("./js/com/exposure.js"),
-// 	WaterFall=require("./js/com/waterfall.js"),
-// 	Ajax=require("./js/com/ajax.js");
 
-
-// 	$(".carousel").each(function(){
-// 		 new Carousel($(this));
-// 	 })
-
-// 	GoTop.init();
-
-// 	Exposure.one($('.about-ul>li'), function(){
-// 		var $this = $(this);
-// 		$this.css({"opacity":"1"});
-// 	 });
-
-// 	WaterFall.init($('.portfolio ul'));
-
-// 	Ajax.init($(".load"));
+$(".minbtn-wrap").on("click",function(){
+	$("aside").toggleClass('active')
+})
+$(".myname").on("click",function(){
+	$('html,body').animate({scrollTop: 0}, 800);
+})
 
 
 	var navArr=['.information-nav' ,'.works-nav','.skills-nav','.contact-nav'],
@@ -60,6 +50,15 @@ var s = '我是一个性格幽默、做事认真，热爱运动的人。 我喜�
 		}
 	})
 
+	for(var i=0; i<navArr.length; i++){
+			(function(i){
+				$(navArr[i]).on('click',function(){
+					$('html,body').animate({scrollTop: $(contentArr[i]).offset().top-80}, 800);
+				})
+			})(i)
+		}
+
+
 
 	function halfVisible($target){
 		var winH=$(window).height(),
@@ -70,13 +69,7 @@ var s = '我是一个性格幽默、做事认真，热爱运动的人。 我喜�
 	}
 
 
-	for(var i=0; i<navArr.length; i++){
-			(function(i){
-				$(navArr[i]).on('click',function(){
-					$('html,body').animate({scrollTop: $(contentArr[i]).offset().top-80}, 800);
-				})
-			})(i)
-		}
+	
 
 
 var option = {
@@ -96,8 +89,8 @@ var option = {
            { name: 'jQuery', max: 100},
            { name: 'LESS&SASS', max: 100},
            { name: 'Bootstrap', max: 100},
-           { name: 'Gulp',max:100},
-           { name: 'React JS', max:100}
+           { name: 'webpack',max:100},
+           { name: 'Vue', max:100}
            
         ]
     },
@@ -106,11 +99,11 @@ var option = {
         type: 'radar',
         data : [
             {
-                value : [90, 80, 70, 75, 60, 70, 70, 60],
+                value : [90, 80, 75, 80, 60, 70, 70, 60],
                 name : '能力'
             },
             {
-                value : [80, 100, 80, 85, 60, 75, 80, 100],
+                value : [80, 95, 100, 85, 75, 75, 80, 75],
                 name : '兴趣'
             }
         ]

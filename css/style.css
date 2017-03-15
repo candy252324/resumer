@@ -3,14 +3,13 @@ html,body{
 	padding:0;
 	width: 100%;
 	height: 100%;
-	color:#333;
+	color:#666;
 	font-family: "Microsoft Yahei",tahoma,arial,"Hiragino Sans GB";
 }
 ul,li,p,h1{
 	margin:0;
 	padding:0;
 }
-
 a{
 	text-decoration: none;
 }
@@ -200,20 +199,21 @@ aside{
 	width: 200px;
 	padding:50px 25px 0;
 	background: #123555;
+	transition: all .2s;
 }
 aside .header-img{
 	display: block;
 	text-align: center;
 	border-radius: 50%;
 }
-aside h1{
+aside .myname{
 	text-align: center;
 	margin: 20px auto;
 	font: 30px 宋体;
 	color:#fff;
 
 }
-aside h1:hover{
+aside .myname:hover{
 	color:#f60;
 	cursor:pointer;
 }
@@ -298,7 +298,7 @@ aside .project-address{
 .information{
 	height: 100%;
 	margin-left: 250px;
-	background: url(../img/bg.jpg) no-repeat;
+	background: url(../img/bg.jpg) center no-repeat;
 	background-size: cover;
 	padding-top:1px;
 	color:#fff;
@@ -395,7 +395,6 @@ aside .project-address{
 .skills .content{
 	padding: 20px 5%;
 	background: #eee;
-	color:#666;
 }
 .skills .content .item{
 	box-sizing: border-box;
@@ -409,7 +408,7 @@ aside .project-address{
 	line-height: 28px;
 }
 .contact .code-wrap{
-	padding-bottom: 50px;
+	padding: 20px 0 50px;
 	border-bottom: 2px solid #000;
 }
 .contact .code{
@@ -419,62 +418,6 @@ aside .project-address{
 }
 .contact .code img{
 	width: 60%;
-}
-.contact .email-wrap{
-	color:#666;
-	padding: 50px 0;
-}
-.contact  input, .contact textarea{
-	border-radius: 5px;
-	border:1px solid #ddd;
-	color:#555;
-	outline: none;
-}
-.contact input:focus, .contact textarea:focus{
-	border:1px solid #ccc;
-	box-shadow: 0 0 3px 0 rgba(0,0,0,.2);
-}
-.contact .name{
-	float: left;
-	width: 48%;
-}
-.contact .email{
-	float: right;
-	width: 48%;
-}
-.contact .name input, .contact .email input{
-	width: 100%;
-	height: 40px;
-	padding: 0 6px;
-}
-.contact .message{
-	float: left;
-	width: 100%;
-	margin-top: 15px;
-}
-.contact .submit, .contact .reset {
-	float: left;
-	padding:10px 20px;
-	margin: 20px 20px 0 0;
-	color:#fff;
-	background: #000;
-	box-shadow: 1px 1px 3px 0 rgba(0,0,0,.3);
-}
-.contact .submit:hover, .contact .reset:hover{
-	background: #333;
-}
-.contact textarea{
-	width: 100%;
-	height: 300px;
-	padding: 8px;
-	line-height: 20px;
-}
-.contact .email-wrap h1{
-	margin-bottom: 20px;
-}
-.contact .email-wrap p{
-	height: 25px;
-	line-height: 25px;
 }
 
 @media(max-width: 1440px){
@@ -490,17 +433,46 @@ aside .project-address{
 }
 @media(max-width: 992px){
 	aside{
+		left: -245px;
+		opacity: .9;
+		z-index: 100;
+	}
+	aside:after{
+		content: "";
+		position: absolute;
+		left:100%;
+		top:50%;
+		width: 0;
+		height: 0;
+		border-width:25px 10px;
+		border-style: solid;
+		border-color: transparent transparent transparent #123555;
+		transform: translateY(-50%);
+	}
+	aside:hover{
+		left:0;
+	}
+	.information{
+		margin-left: 0;
+	}
+	.main{
+		padding-left: 0;
+	}
+}
+@media(max-width: 768px){
+	aside{
 		position: fixed;
 		top:0;
 		left: 0;
 		right: 0;
 		width: 100%;
 		height: 50px;
-		line-height: 50px;
 		padding:5px 20px;
-		opacity: .85;
-		z-index: 100;
-		background: #123555;
+		opacity: 1;
+		transition: none;
+	}
+	aside:after{
+		display: none;
 	}
 	aside .header-img{
 		position: relative;
@@ -516,47 +488,80 @@ aside .project-address{
 		top:-7px;
 		width: 50px;
 	}
-	aside h1{
+	aside .myname{
 		float: left;
 		font-size: 25px;
 		line-height: 50px;
 		margin:0;
 	}
-	aside .menu{
-		float: right;
-		padding: 0 40px;
-	}
-	aside .menu li{
-		float: left;
-		margin-top:0;
-		margin-left: 20px;
-		list-style: none;
-	}
-	aside .menu a{
-		font-size: 14px;
-	}
-	aside .menu .num{
+	
+	aside .suspension{
+		position: fixed;
+		top:60px;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		padding:80px 25px 0;
+		z-index: 50;
+		background: rgba(0,0,0,.8);
 		display: none;
-	}
-	aside .bottom{
-		display: none;
-	}
-	.information{
-		padding-top: 55px;
-		margin-left: 0;
-	}
-	.main{
-		padding-left: 0;
 	}
 	
-}
-
-@media(max-width: 768px){
-	aside .menu li{
-		margin-left: 10px;
+	aside .suspension .menu{
+		margin-left: 30px;
+		line-height: 30px;
 	}
-	aside .menu a{
-		font-size: 12px;
+	aside .suspension .menu li a{
+		font-size: 18px;
+	}
+	aside  .menu .num{
+		color:#fff;
+	}
+	aside .minbtn-wrap{
+		position: absolute;
+		top:50%;
+		right: 70px;
+		width: 35px;
+		height: 24px;
+		transform: translateY(-50%);
+		cursor: pointer;
+	}
+	aside .minbtn{
+		width: 100%;
+		height: 4px;
+		margin-top:10px; 
+		background: #fff;
+		border-radius: 5px;
+		transition:  all .2s;
+	}
+	aside .minbtn:before, aside .minbtn:after{
+		content: "";
+		position: absolute;
+		width: 35px;
+		height: 4px;
+		background: #fff;
+		border-radius: 5px;
+		transition:  all .2s;
+	}
+	aside .minbtn:before{
+		left: 0;
+		top:0;
+	}
+	aside .minbtn:after{
+		left: 0;
+		bottom:0;
+	}
+	aside.active .suspension{
+		display: block;
+	}
+	aside.active .minbtn{
+		transform: rotate(135deg);
+	}
+	aside.active .minbtn:before{
+		transform: rotate(90deg);
+	}
+	.information h1{
+		margin-top: 65px;
 	}
 	.information p{
 		width: 95%;

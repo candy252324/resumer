@@ -47,12 +47,12 @@
 	"use strict";
 
 	__webpack_require__(1);
-	__webpack_require__(5);
+	__webpack_require__(6);
 
-	var $ = __webpack_require__(11);
-	var Echarts = __webpack_require__(14);
+	var $ = __webpack_require__(12);
+	var Echarts = __webpack_require__(15);
 
-	var s = '我是一个性格幽默、做事认真，热爱运动的人。 我喜欢研究所碰到的各种技术，热衷解决碰到的任何程序问题，不给自己设边界，有 Geek 精神。我有时间概念，能在约定时间内保证完成任务。 我正在寻找一家公司希望加入一个以技术为驱动，从事前端开发工作，并且可以提升大型项目的驾驭能力，希望新工作有成长空间，技术上有挑战性，技术氛围够Geek，使人有成就感的互联网公司。';
+	var s = '我是一个热爱运动，有责任心的人。 工作中能独当一面，也能承受工作中的压力。' + '喜欢研究所碰到的各种技术问题，不给自己设边界。' + '并且执行力强，有新的想法就马上付诸行动去实现。' + '我有时间概念，能在约定时间内保证完成任务。' + '希望在一个以技术为驱动、有成长空间的公司里从事前端开发工作，不断迎接技术上的挑战，提升自己驾驭大型项目的能力。';
 	var con = $('.typer');
 	var index = 0;
 	var length = s.length;
@@ -71,28 +71,12 @@
 
 	start();
 
-	// var Carousel=require("./js/com/carousel.js"),
-	// 	GoTop=require("./js/com/gotop.js"),
-	// 	Exposure=require("./js/com/exposure.js"),
-	// 	WaterFall=require("./js/com/waterfall.js"),
-	// 	Ajax=require("./js/com/ajax.js");
-
-
-	// 	$(".carousel").each(function(){
-	// 		 new Carousel($(this));
-	// 	 })
-
-	// 	GoTop.init();
-
-	// 	Exposure.one($('.about-ul>li'), function(){
-	// 		var $this = $(this);
-	// 		$this.css({"opacity":"1"});
-	// 	 });
-
-	// 	WaterFall.init($('.portfolio ul'));
-
-	// 	Ajax.init($(".load"));
-
+	$(".minbtn-wrap").on("click", function () {
+		$("aside").toggleClass('active');
+	});
+	$(".myname").on("click", function () {
+		$('html,body').animate({ scrollTop: 0 }, 800);
+	});
 
 	var navArr = ['.information-nav', '.works-nav', '.skills-nav', '.contact-nav'],
 	    contentArr = ['.information', '.works', '.skills', '.contact'];
@@ -106,20 +90,20 @@
 		}
 	});
 
-	function halfVisible($target) {
-		var winH = $(window).height(),
-		    scrollTop = $(window).scrollTop(),
-		    offsetTop = $target.offset().top,
-		    $targetH = $target.outerHeight(true);
-		return scrollTop + winH / 2 >= offsetTop && offsetTop + $targetH > scrollTop + winH / 2;
-	}
-
 	for (var i = 0; i < navArr.length; i++) {
 		(function (i) {
 			$(navArr[i]).on('click', function () {
 				$('html,body').animate({ scrollTop: $(contentArr[i]).offset().top - 80 }, 800);
 			});
 		})(i);
+	}
+
+	function halfVisible($target) {
+		var winH = $(window).height(),
+		    scrollTop = $(window).scrollTop(),
+		    offsetTop = $target.offset().top,
+		    $targetH = $target.outerHeight(true);
+		return scrollTop + winH / 2 >= offsetTop && offsetTop + $targetH > scrollTop + winH / 2;
 	}
 
 	var option = {
@@ -132,16 +116,16 @@
 		},
 		radar: {
 			// shape: 'circle',
-			indicator: [{ name: 'HTML&HTML5', max: 100 }, { name: 'CSS&CSS3', max: 100 }, { name: 'JS', max: 100 }, { name: 'jQuery', max: 100 }, { name: 'LESS&SASS', max: 100 }, { name: 'Bootstrap', max: 100 }, { name: 'Gulp', max: 100 }, { name: 'React JS', max: 100 }]
+			indicator: [{ name: 'HTML&HTML5', max: 100 }, { name: 'CSS&CSS3', max: 100 }, { name: 'JS', max: 100 }, { name: 'jQuery', max: 100 }, { name: 'LESS&SASS', max: 100 }, { name: 'Bootstrap', max: 100 }, { name: 'webpack', max: 100 }, { name: 'Vue', max: 100 }]
 		},
 		series: [{
 			name: '能力 vs 兴趣（skill vs interesting）',
 			type: 'radar',
 			data: [{
-				value: [90, 80, 70, 75, 60, 70, 70, 60],
+				value: [90, 80, 75, 80, 60, 70, 70, 60],
 				name: '能力'
 			}, {
-				value: [80, 100, 80, 85, 60, 75, 80, 100],
+				value: [80, 95, 100, 85, 75, 75, 80, 75],
 				name: '兴趣'
 			}]
 		}]
@@ -160,7 +144,7 @@
 	var content = __webpack_require__(2);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(4)(content, {});
+	var update = __webpack_require__(5)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -185,7 +169,7 @@
 
 
 	// module
-	exports.push([module.id, "html,body{\r\n\tmargin:0;\r\n\tpadding:0;\r\n\twidth: 100%;\r\n\theight: 100%;\r\n\tcolor:#333;\r\n\tfont-family: \"Microsoft Yahei\",tahoma,arial,\"Hiragino Sans GB\";\r\n}\r\nul,li,p,h1{\r\n\tmargin:0;\r\n\tpadding:0;\r\n}\r\n\r\na{\r\n\ttext-decoration: none;\r\n}\r\n.clearfix:after{\r\n\tcontent: \"\";\r\n\tdisplay: block;\r\n\tclear: both;\r\n}\r\n\r\n/*栅格*/\r\n.col-sx-1,.col-xs-2,.col-xs-3,.col-xs-4,.col-xs-5,.col-xs-6,.col-xs-7,.col-xs-8,.col-xs-9,.col-xs-10,.col-xs-11,.col-xs-12{\r\n\tfloat: left;\r\n}\r\n.col-xs-12{\r\n\twidth: 100%;\r\n}\r\n.col-xs-11{\r\n\twidth: 91.66666667%;\r\n}\r\n.col-xs-10{\r\n\twidth: 83.33333333%;\r\n}\r\n.col-xs-9{\r\n\twidth: 75%;\r\n}\r\n.col-xs-8{\r\n\twidth: 66.66666667%;\r\n}\r\n.col-xs-7{\r\n\twidth: 58.33333333%;\r\n}\r\n.col-xs-6{\r\n\twidth: 50%;\r\n}\r\n.col-xs-5{\r\n\twidth: 41.66666667%;\r\n}\r\n.col-xs-4{\r\n\twidth: 33.33333333%;\r\n}\r\n.col-xs-3{\r\n\twidth: 25%;\r\n}\r\n.col-xs-2{\r\n\twidth: 16.66666667%;\r\n}\r\n.col-xs-1{\r\n\twidth: 8.33333333%;\r\n}\r\n\r\n@media(min-width: 768px){\r\n\t.col-sm-1,.col-sm-2,.col-sm-3,.col-sm-4,.col-sm-5,.col-sm-6,.col-sm-7,.col-sm-8,.col-sm-9,.col-sm-10,.col-sm-11,.col-sm-12{\r\n\t\tfloat: left;\r\n\t}\r\n\t.col-sm-12{\r\n\t\twidth: 100%;\r\n\t}\r\n\t.col-sm-11{\r\n\t\twidth: 91.66666667%;\r\n\t}\r\n\t.col-sm-10{\r\n\t\twidth: 83.33333333%;\r\n\t}\r\n\t.col-sm-9{\r\n\t\twidth: 75%;\r\n\t}\r\n\t.col-sm-8{\r\n\t\twidth: 66.66666667%;\r\n\t}\r\n\t.col-sm-7{\r\n\t\twidth: 58.33333333%;\r\n\t}\r\n\t.col-sm-6{\r\n\t\twidth: 50%;\r\n\t}\r\n\t.col-sm-5{\r\n\t\twidth: 41.66666667%;\r\n\t}\r\n\t.col-sm-4{\r\n\t\twidth: 33.33333333%;\r\n\t}\r\n\t.col-sm-3{\r\n\t\twidth: 25%;\r\n\t}\r\n\t.col-sm-2{\r\n\t\twidth: 16.66666667%;\r\n\t}\r\n\t.col-sm-1{\r\n\t\twidth: 8.33333333%;\r\n\t}\r\n}\r\n@media(min-width: 992px){\r\n\t.col-md-1,.col-md-2,.col-md-3,.col-md-4,.col-md-5,.col-md-6,.col-md-7,.col-md-8,.col-md-9,.col-md-10,.col-md-11,.col-md-12{\r\n\t\tfloat: left;\r\n\t}\r\n\t.col-md-12{\r\n\t\twidth: 100%;\r\n\t}\r\n\t.col-md-11{\r\n\t\twidth: 91.66666667%;\r\n\t}\r\n\t.col-md-10{\r\n\t\twidth: 83.33333333%;\r\n\t}\r\n\t.col-md-9{\r\n\t\twidth: 75%;\r\n\t}\r\n\t.col-md-8{\r\n\t\twidth: 66.66666667%;\r\n\t}\r\n\t.col-md-7{\r\n\t\twidth: 58.33333333%;\r\n\t}\r\n\t.col-md-6{\r\n\t\twidth: 50%;\r\n\t}\r\n\t.col-md-5{\r\n\t\twidth: 41.66666667%;\r\n\t}\r\n\t.col-md-4{\r\n\t\twidth: 33.33333333%;\r\n\t}\r\n\t.col-md-3{\r\n\t\twidth: 25%;\r\n\t}\r\n\t.col-md-2{\r\n\t\twidth: 16.66666667%;\r\n\t}\r\n\t.col-md-1{\r\n\t\twidth: 8.33333333%;\r\n\t}\r\n}\r\n\r\n@media(min-width: 1200px){\r\n\t.col-lg-1,.col-lg-2,.col-lg-3,.col-lg-4,.col-lg-5,.col-lg-6,.col-lg-7,.col-lg-8,.col-lg-9,.col-lg-10,.col-lg-11,.col-lg-12{\r\n\t\tfloat: left;\r\n\t}\r\n\t.col-lg-12{\r\n\t\twidth: 100%;\r\n\t}\r\n\t.col-lg-11{\r\n\t\twidth: 91.66666667%;\r\n\t}\r\n\t.col-lg-10{\r\n\t\twidth: 83.33333333%;\r\n\t}\r\n\t.col-lg-9{\r\n\t\twidth: 75%;\r\n\t}\r\n\t.col-lg-8{\r\n\t\twidth: 66.66666667%;\r\n\t}\r\n\t.col-lg-7{\r\n\t\twidth: 58.33333333%;\r\n\t}\r\n\t.col-lg-6{\r\n\t\twidth: 50%;\r\n\t}\r\n\t.col-lg-5{\r\n\t\twidth: 41.66666667%;\r\n\t}\r\n\t.col-lg-4{\r\n\t\twidth: 33.33333333%;\r\n\t}\r\n\t.col-lg-3{\r\n\t\twidth: 25%;\r\n\t}\r\n\t.col-lg-2{\r\n\t\twidth: 16.66666667%;\r\n\t}\r\n\t.col-lg-1{\r\n\t\twidth: 8.33333333%;\r\n\t}\r\n}\r\n.main{\r\n\tpadding-left: 250px;\r\n}\r\n.wrap{\r\n\twidth: 90%;\r\n\tmargin:40px auto 40px;\r\n}\r\naside{\r\n\tposition: fixed;\r\n\ttop:0;\r\n\tleft: 0;\r\n\tbottom: 0;\r\n\twidth: 200px;\r\n\tpadding:50px 25px 0;\r\n\tbackground: #123555;\r\n}\r\naside .header-img{\r\n\tdisplay: block;\r\n\ttext-align: center;\r\n\tborder-radius: 50%;\r\n}\r\naside h1{\r\n\ttext-align: center;\r\n\tmargin: 20px auto;\r\n\tfont: 30px 宋体;\r\n\tcolor:#fff;\r\n\r\n}\r\naside h1:hover{\r\n\tcolor:#f60;\r\n\tcursor:pointer;\r\n}\r\naside .menu{\r\n\tcolor:#fff;\r\n}\r\naside .menu li{\r\n\tmargin-top:20px;\r\n\tlist-style: none;\r\n}\r\naside .menu li.nav-active a{\r\n\tcolor:#f60;\r\n}\r\naside .menu .num{\r\n\tfont-size: 14px;\r\n\tmargin-right: 5px;\r\n\tcolor:#7f7f7f;\r\n}\r\naside .menu .text{\r\n\tcolor:#fff;\r\n}\r\naside .menu .text:hover{\r\n\tcolor:#f60;\r\n}\r\naside .bottom{\r\n\tposition: absolute;\r\n\tbottom: 30px;\r\n}\r\naside .bottom .link-list{\r\n\tmargin-bottom: 20px;\r\n}\r\naside  .icon{\r\n\tposition: relative;\r\n\tfloat: left;\r\n\twidth: 40px;\r\n\theight: 40px;\r\n\tline-height: 40px;\r\n\tmargin:3px;\r\n\ttext-align: center;\r\n\tborder-radius: 50%;\r\n\tbackground: #fff;\r\n}\r\naside  .icon .cover{\r\n\tposition: absolute;\r\n\tleft: 0;\r\n\ttop:0;\r\n\twidth: 100%;\r\n\theight: 100%;\r\n\tborder-radius: 50%;\r\n\tbackground: rgba(0,0,0,.3);\r\n}\r\naside  .icon:hover .cover{\r\n\tbackground: rgba(0,0,0,0);\r\n}\r\naside  .icon.jianshu{\r\n\tbackground: #ea6f5a;\r\n\tcolor:#fff;\r\n}\r\naside  .icon.github{\r\n\tbackground: #fff;\r\n\tcolor:#000;\r\n}\r\naside  .icon.qq{\r\n\tbackground:#d1484f;\r\n\tcolor: #fff;\r\n}\r\naside  .icon.email{\r\n\tbackground: #00ab6c;\r\n\tcolor:#fff;\r\n\tline-height: 45px;\r\n}\r\naside .note{\r\n\tcolor:#ccc;\r\n\tfont-size: 12px;\r\n}\r\naside .note a{\r\n\tcolor:#ccc;\r\n}\r\naside .project-address{\r\n\ttext-decoration:underline;\r\n}\r\n.information{\r\n\theight: 100%;\r\n\tmargin-left: 250px;\r\n\tbackground: url(" + __webpack_require__(16) + ") no-repeat;\r\n\tbackground-size: cover;\r\n\tpadding-top:1px;\r\n\tcolor:#fff;\r\n}\r\n.information p{\r\n\tmargin-left: 20px;\r\n\twidth: 60%;\r\n\tline-height: 40px;\r\n\tfont-size: 18px;\r\n}\r\n.information .typer{\r\n\tmargin-top: 20px;\r\n\tfont-size: 16px;\r\n}\r\n.works, .contact{\r\n\tpadding: 20px 0;\r\n\tbackground: #f6f7f8;\r\n}\r\n.skills{\r\n\tpadding-top: 20px;\r\n\tbackground: #f6f7f8;\r\n}\r\n.works a{\r\n\tbox-sizing: border-box;\r\n\tposition: relative;\r\n\tborder:1px solid #fff;\r\n\tline-height: 0px;\r\n}\r\n.works a .cover{\r\n\tposition: absolute;\r\n\tleft:0;\r\n\ttop:0;\r\n\tright: 0;\r\n\tbottom: 0;\r\n\tz-index: 1;\r\n\tbackground: rgba(0,0,0 ,.3);\r\n}\r\n.works  img{\r\n\twidth: 100%;\r\n\tvertical-align: center;\r\n}\r\n.works img{\r\n\tposition: relative;\r\n\tbox-shadow: 1px 1px 5px 0 rgba(0,0,0,.3);\r\n}\r\n.works .title{\r\n\tposition: absolute;\r\n\ttop:50%;\r\n\tleft: 50%;\r\n\ttransform: translate(-50%,-50%);\r\n\tz-index: 2;\r\n\tfont-size: 30px;\r\n\tline-height: 30px;\r\n\tcolor:#fff;\r\n\ttransition: all .3s;\r\n}\r\n.works .desc{\r\n\tposition: absolute;\r\n\ttop:40%;\r\n\tleft: 50%;\r\n\twidth: 80%;\r\n\ttransform: translate(-50%,-50%);\r\n\tz-index: 2;\r\n\tfont-size: 12px;\r\n\tline-height: 16px;\r\n\tcolor:#fff;\r\n\topacity: 0;\r\n\ttransition: all .6s ease-out;\r\n}\r\n.works a:nth-child(1):hover .cover{\r\n\tbackground: rgba(3,54,73,.6);\r\n}\r\n.works a:nth-child(2):hover .cover{\r\n\tbackground: rgba(205,179,128,.6);\r\n}\r\n.works a:nth-child(3):hover .cover{\r\n\tbackground: rgba(230,155,3,.6);\r\n}\r\n.works a:nth-child(4):hover .cover{\r\n\tbackground: rgba(209,73,78,.6);\r\n}\r\n.works a:hover .title{\r\n\ttop: 40%;\r\n}\r\n.works a:hover .desc{\r\n\ttop: 60%;\r\n\topacity: 1;\r\n}\r\n.skills .echarts{\r\n\twidth:600px;\r\n\theight:600px;\r\n\tmargin: 100px auto;\r\n}\r\n.skills .content{\r\n\tpadding: 20px 5%;\r\n\tbackground: #eee;\r\n\tcolor:#666;\r\n}\r\n.skills .content .item{\r\n\tbox-sizing: border-box;\r\n\tfloat: left;\r\n\twidth: 50%;\r\n}\r\n.skills .content .item:first-child{\r\n\tpadding-right: 10%;\r\n}\r\n.skills .content ul li{\r\n\tline-height: 28px;\r\n}\r\n.contact .code-wrap{\r\n\tpadding-bottom: 50px;\r\n\tborder-bottom: 2px solid #000;\r\n}\r\n.contact .code{\r\n\tfloat: left;\r\n\ttext-align:center;\r\n\twidth: 50%;\r\n}\r\n.contact .code img{\r\n\twidth: 60%;\r\n}\r\n.contact .email-wrap{\r\n\tcolor:#666;\r\n\tpadding: 50px 0;\r\n}\r\n.contact  input, .contact textarea{\r\n\tborder-radius: 5px;\r\n\tborder:1px solid #ddd;\r\n\tcolor:#555;\r\n\toutline: none;\r\n}\r\n.contact input:focus, .contact textarea:focus{\r\n\tborder:1px solid #ccc;\r\n\tbox-shadow: 0 0 3px 0 rgba(0,0,0,.2);\r\n}\r\n.contact .name{\r\n\tfloat: left;\r\n\twidth: 48%;\r\n}\r\n.contact .email{\r\n\tfloat: right;\r\n\twidth: 48%;\r\n}\r\n.contact .name input, .contact .email input{\r\n\twidth: 100%;\r\n\theight: 40px;\r\n\tpadding: 0 6px;\r\n}\r\n.contact .message{\r\n\tfloat: left;\r\n\twidth: 100%;\r\n\tmargin-top: 15px;\r\n}\r\n.contact .submit, .contact .reset {\r\n\tfloat: left;\r\n\tpadding:10px 20px;\r\n\tmargin: 20px 20px 0 0;\r\n\tcolor:#fff;\r\n\tbackground: #000;\r\n\tbox-shadow: 1px 1px 3px 0 rgba(0,0,0,.3);\r\n}\r\n.contact .submit:hover, .contact .reset:hover{\r\n\tbackground: #333;\r\n}\r\n.contact textarea{\r\n\twidth: 100%;\r\n\theight: 300px;\r\n\tpadding: 8px;\r\n\tline-height: 20px;\r\n}\r\n.contact .email-wrap h1{\r\n\tmargin-bottom: 20px;\r\n}\r\n.contact .email-wrap p{\r\n\theight: 25px;\r\n\tline-height: 25px;\r\n}\r\n\r\n@media(max-width: 1440px){\r\n\t.skills .content ul li{\r\n\t\tfont-size: 14px;\r\n\t\tline-height: 20px;\r\n\t}\r\n}\r\n@media(max-width: 1200px){\r\n\t.information p{\r\n\t\twidth: 80%;\r\n\t}\r\n}\r\n@media(max-width: 992px){\r\n\taside{\r\n\t\tposition: fixed;\r\n\t\ttop:0;\r\n\t\tleft: 0;\r\n\t\tright: 0;\r\n\t\twidth: 100%;\r\n\t\theight: 50px;\r\n\t\tline-height: 50px;\r\n\t\tpadding:5px 20px;\r\n\t\topacity: .85;\r\n\t\tz-index: 100;\r\n\t\tbackground: #123555;\r\n\t}\r\n\taside .header-img{\r\n\t\tposition: relative;\r\n\t\tfloat: left;\r\n\t\twidth:50px;\r\n\t\theight: 50px; \r\n\t\tmargin-right: 25px;\r\n\t\toverflow: hidden;\r\n\t}\r\n\taside .header-img img{\r\n\t\tposition: absolute;\r\n\t\tleft:0;\r\n\t\ttop:-7px;\r\n\t\twidth: 50px;\r\n\t}\r\n\taside h1{\r\n\t\tfloat: left;\r\n\t\tfont-size: 25px;\r\n\t\tline-height: 50px;\r\n\t\tmargin:0;\r\n\t}\r\n\taside .menu{\r\n\t\tfloat: right;\r\n\t\tpadding: 0 40px;\r\n\t}\r\n\taside .menu li{\r\n\t\tfloat: left;\r\n\t\tmargin-top:0;\r\n\t\tmargin-left: 20px;\r\n\t\tlist-style: none;\r\n\t}\r\n\taside .menu a{\r\n\t\tfont-size: 14px;\r\n\t}\r\n\taside .menu .num{\r\n\t\tdisplay: none;\r\n\t}\r\n\taside .bottom{\r\n\t\tdisplay: none;\r\n\t}\r\n\t.information{\r\n\t\tpadding-top: 55px;\r\n\t\tmargin-left: 0;\r\n\t}\r\n\t.main{\r\n\t\tpadding-left: 0;\r\n\t}\r\n\t\r\n}\r\n\r\n@media(max-width: 768px){\r\n\taside .menu li{\r\n\t\tmargin-left: 10px;\r\n\t}\r\n\taside .menu a{\r\n\t\tfont-size: 12px;\r\n\t}\r\n\t.information p{\r\n\t\twidth: 95%;\r\n\t\tline-height: 30px;\r\n\t\tfont-size: 16px;\r\n\t}\r\n\t.information p.typer{\r\n\t\tfont-size: 14px;\r\n\t}\r\n\t.works .cover{\r\n\t\tdisplay: none;\r\n\t}\r\n\t.works a{\r\n\t\tpadding: 35px 0;\r\n\t\tborder-bottom:2px solid #000;\r\n\t\tborder:none;\r\n\t}\r\n\t.works a:last-child{\r\n\t\tmargin-bottom: 0px;\r\n\t}\r\n\t.works .title{\r\n\t\tdisplay: block;\r\n\t\tposition: static;\r\n\t\ttransform: none;\r\n\t\tfont-size: 20px;\r\n\t\tcolor:#333;\r\n\t}\r\n\t.works .desc{\r\n\t\tdisplay: block;\r\n\t\tposition: static;\r\n\t\tmargin:8px 0;\r\n\t\ttransform: none;\r\n\t\tfont-size: 12px;\r\n\t\tcolor:#333;\r\n\t\topacity: 1;\r\n\t}\r\n\t.skills .content .item{\r\n\t\tfloat: none;\r\n\t\twidth: 100%;\r\n\t\tpadding: 10px;\r\n\t}\r\n\t\r\n}\r\n\r\n", ""]);
+	exports.push([module.id, "html,body{\r\n\tmargin:0;\r\n\tpadding:0;\r\n\twidth: 100%;\r\n\theight: 100%;\r\n\tcolor:#666;\r\n\tfont-family: \"Microsoft Yahei\",tahoma,arial,\"Hiragino Sans GB\";\r\n}\r\nul,li,p,h1{\r\n\tmargin:0;\r\n\tpadding:0;\r\n}\r\na{\r\n\ttext-decoration: none;\r\n}\r\n.clearfix:after{\r\n\tcontent: \"\";\r\n\tdisplay: block;\r\n\tclear: both;\r\n}\r\n\r\n/*栅格*/\r\n.col-sx-1,.col-xs-2,.col-xs-3,.col-xs-4,.col-xs-5,.col-xs-6,.col-xs-7,.col-xs-8,.col-xs-9,.col-xs-10,.col-xs-11,.col-xs-12{\r\n\tfloat: left;\r\n}\r\n.col-xs-12{\r\n\twidth: 100%;\r\n}\r\n.col-xs-11{\r\n\twidth: 91.66666667%;\r\n}\r\n.col-xs-10{\r\n\twidth: 83.33333333%;\r\n}\r\n.col-xs-9{\r\n\twidth: 75%;\r\n}\r\n.col-xs-8{\r\n\twidth: 66.66666667%;\r\n}\r\n.col-xs-7{\r\n\twidth: 58.33333333%;\r\n}\r\n.col-xs-6{\r\n\twidth: 50%;\r\n}\r\n.col-xs-5{\r\n\twidth: 41.66666667%;\r\n}\r\n.col-xs-4{\r\n\twidth: 33.33333333%;\r\n}\r\n.col-xs-3{\r\n\twidth: 25%;\r\n}\r\n.col-xs-2{\r\n\twidth: 16.66666667%;\r\n}\r\n.col-xs-1{\r\n\twidth: 8.33333333%;\r\n}\r\n\r\n@media(min-width: 768px){\r\n\t.col-sm-1,.col-sm-2,.col-sm-3,.col-sm-4,.col-sm-5,.col-sm-6,.col-sm-7,.col-sm-8,.col-sm-9,.col-sm-10,.col-sm-11,.col-sm-12{\r\n\t\tfloat: left;\r\n\t}\r\n\t.col-sm-12{\r\n\t\twidth: 100%;\r\n\t}\r\n\t.col-sm-11{\r\n\t\twidth: 91.66666667%;\r\n\t}\r\n\t.col-sm-10{\r\n\t\twidth: 83.33333333%;\r\n\t}\r\n\t.col-sm-9{\r\n\t\twidth: 75%;\r\n\t}\r\n\t.col-sm-8{\r\n\t\twidth: 66.66666667%;\r\n\t}\r\n\t.col-sm-7{\r\n\t\twidth: 58.33333333%;\r\n\t}\r\n\t.col-sm-6{\r\n\t\twidth: 50%;\r\n\t}\r\n\t.col-sm-5{\r\n\t\twidth: 41.66666667%;\r\n\t}\r\n\t.col-sm-4{\r\n\t\twidth: 33.33333333%;\r\n\t}\r\n\t.col-sm-3{\r\n\t\twidth: 25%;\r\n\t}\r\n\t.col-sm-2{\r\n\t\twidth: 16.66666667%;\r\n\t}\r\n\t.col-sm-1{\r\n\t\twidth: 8.33333333%;\r\n\t}\r\n}\r\n@media(min-width: 992px){\r\n\t.col-md-1,.col-md-2,.col-md-3,.col-md-4,.col-md-5,.col-md-6,.col-md-7,.col-md-8,.col-md-9,.col-md-10,.col-md-11,.col-md-12{\r\n\t\tfloat: left;\r\n\t}\r\n\t.col-md-12{\r\n\t\twidth: 100%;\r\n\t}\r\n\t.col-md-11{\r\n\t\twidth: 91.66666667%;\r\n\t}\r\n\t.col-md-10{\r\n\t\twidth: 83.33333333%;\r\n\t}\r\n\t.col-md-9{\r\n\t\twidth: 75%;\r\n\t}\r\n\t.col-md-8{\r\n\t\twidth: 66.66666667%;\r\n\t}\r\n\t.col-md-7{\r\n\t\twidth: 58.33333333%;\r\n\t}\r\n\t.col-md-6{\r\n\t\twidth: 50%;\r\n\t}\r\n\t.col-md-5{\r\n\t\twidth: 41.66666667%;\r\n\t}\r\n\t.col-md-4{\r\n\t\twidth: 33.33333333%;\r\n\t}\r\n\t.col-md-3{\r\n\t\twidth: 25%;\r\n\t}\r\n\t.col-md-2{\r\n\t\twidth: 16.66666667%;\r\n\t}\r\n\t.col-md-1{\r\n\t\twidth: 8.33333333%;\r\n\t}\r\n}\r\n\r\n@media(min-width: 1200px){\r\n\t.col-lg-1,.col-lg-2,.col-lg-3,.col-lg-4,.col-lg-5,.col-lg-6,.col-lg-7,.col-lg-8,.col-lg-9,.col-lg-10,.col-lg-11,.col-lg-12{\r\n\t\tfloat: left;\r\n\t}\r\n\t.col-lg-12{\r\n\t\twidth: 100%;\r\n\t}\r\n\t.col-lg-11{\r\n\t\twidth: 91.66666667%;\r\n\t}\r\n\t.col-lg-10{\r\n\t\twidth: 83.33333333%;\r\n\t}\r\n\t.col-lg-9{\r\n\t\twidth: 75%;\r\n\t}\r\n\t.col-lg-8{\r\n\t\twidth: 66.66666667%;\r\n\t}\r\n\t.col-lg-7{\r\n\t\twidth: 58.33333333%;\r\n\t}\r\n\t.col-lg-6{\r\n\t\twidth: 50%;\r\n\t}\r\n\t.col-lg-5{\r\n\t\twidth: 41.66666667%;\r\n\t}\r\n\t.col-lg-4{\r\n\t\twidth: 33.33333333%;\r\n\t}\r\n\t.col-lg-3{\r\n\t\twidth: 25%;\r\n\t}\r\n\t.col-lg-2{\r\n\t\twidth: 16.66666667%;\r\n\t}\r\n\t.col-lg-1{\r\n\t\twidth: 8.33333333%;\r\n\t}\r\n}\r\n.main{\r\n\tpadding-left: 250px;\r\n}\r\n.wrap{\r\n\twidth: 90%;\r\n\tmargin:40px auto 40px;\r\n}\r\naside{\r\n\tposition: fixed;\r\n\ttop:0;\r\n\tleft: 0;\r\n\tbottom: 0;\r\n\twidth: 200px;\r\n\tpadding:50px 25px 0;\r\n\tbackground: #123555;\r\n\ttransition: all .2s;\r\n}\r\naside .header-img{\r\n\tdisplay: block;\r\n\ttext-align: center;\r\n\tborder-radius: 50%;\r\n}\r\naside .myname{\r\n\ttext-align: center;\r\n\tmargin: 20px auto;\r\n\tfont: 30px 宋体;\r\n\tcolor:#fff;\r\n\r\n}\r\naside .myname:hover{\r\n\tcolor:#f60;\r\n\tcursor:pointer;\r\n}\r\naside .menu{\r\n\tcolor:#fff;\r\n}\r\naside .menu li{\r\n\tmargin-top:20px;\r\n\tlist-style: none;\r\n}\r\naside .menu li.nav-active a{\r\n\tcolor:#f60;\r\n}\r\naside .menu .num{\r\n\tfont-size: 14px;\r\n\tmargin-right: 5px;\r\n\tcolor:#7f7f7f;\r\n}\r\naside .menu .text{\r\n\tcolor:#fff;\r\n}\r\naside .menu .text:hover{\r\n\tcolor:#f60;\r\n}\r\naside .bottom{\r\n\tposition: absolute;\r\n\tbottom: 30px;\r\n}\r\naside .bottom .link-list{\r\n\tmargin-bottom: 20px;\r\n}\r\naside  .icon{\r\n\tposition: relative;\r\n\tfloat: left;\r\n\twidth: 40px;\r\n\theight: 40px;\r\n\tline-height: 40px;\r\n\tmargin:3px;\r\n\ttext-align: center;\r\n\tborder-radius: 50%;\r\n\tbackground: #fff;\r\n}\r\naside  .icon .cover{\r\n\tposition: absolute;\r\n\tleft: 0;\r\n\ttop:0;\r\n\twidth: 100%;\r\n\theight: 100%;\r\n\tborder-radius: 50%;\r\n\tbackground: rgba(0,0,0,.3);\r\n}\r\naside  .icon:hover .cover{\r\n\tbackground: rgba(0,0,0,0);\r\n}\r\naside  .icon.jianshu{\r\n\tbackground: #ea6f5a;\r\n\tcolor:#fff;\r\n}\r\naside  .icon.github{\r\n\tbackground: #fff;\r\n\tcolor:#000;\r\n}\r\naside  .icon.qq{\r\n\tbackground:#d1484f;\r\n\tcolor: #fff;\r\n}\r\naside  .icon.email{\r\n\tbackground: #00ab6c;\r\n\tcolor:#fff;\r\n\tline-height: 45px;\r\n}\r\naside .note{\r\n\tcolor:#ccc;\r\n\tfont-size: 12px;\r\n}\r\naside .note a{\r\n\tcolor:#ccc;\r\n}\r\naside .project-address{\r\n\ttext-decoration:underline;\r\n}\r\n.information{\r\n\theight: 100%;\r\n\tmargin-left: 250px;\r\n\tbackground: url(" + __webpack_require__(4) + ") center no-repeat;\r\n\tbackground-size: cover;\r\n\tpadding-top:1px;\r\n\tcolor:#fff;\r\n}\r\n.information p{\r\n\tmargin-left: 20px;\r\n\twidth: 60%;\r\n\tline-height: 40px;\r\n\tfont-size: 18px;\r\n}\r\n.information .typer{\r\n\tmargin-top: 20px;\r\n\tfont-size: 16px;\r\n}\r\n.works, .contact{\r\n\tpadding: 20px 0;\r\n\tbackground: #f6f7f8;\r\n}\r\n.skills{\r\n\tpadding-top: 20px;\r\n\tbackground: #f6f7f8;\r\n}\r\n.works a{\r\n\tbox-sizing: border-box;\r\n\tposition: relative;\r\n\tborder:1px solid #fff;\r\n\tline-height: 0px;\r\n}\r\n.works a .cover{\r\n\tposition: absolute;\r\n\tleft:0;\r\n\ttop:0;\r\n\tright: 0;\r\n\tbottom: 0;\r\n\tz-index: 1;\r\n\tbackground: rgba(0,0,0 ,.3);\r\n}\r\n.works  img{\r\n\twidth: 100%;\r\n\tvertical-align: center;\r\n}\r\n.works img{\r\n\tposition: relative;\r\n\tbox-shadow: 1px 1px 5px 0 rgba(0,0,0,.3);\r\n}\r\n.works .title{\r\n\tposition: absolute;\r\n\ttop:50%;\r\n\tleft: 50%;\r\n\ttransform: translate(-50%,-50%);\r\n\tz-index: 2;\r\n\tfont-size: 30px;\r\n\tline-height: 30px;\r\n\tcolor:#fff;\r\n\ttransition: all .3s;\r\n}\r\n.works .desc{\r\n\tposition: absolute;\r\n\ttop:40%;\r\n\tleft: 50%;\r\n\twidth: 80%;\r\n\ttransform: translate(-50%,-50%);\r\n\tz-index: 2;\r\n\tfont-size: 12px;\r\n\tline-height: 16px;\r\n\tcolor:#fff;\r\n\topacity: 0;\r\n\ttransition: all .6s ease-out;\r\n}\r\n.works a:nth-child(1):hover .cover{\r\n\tbackground: rgba(3,54,73,.6);\r\n}\r\n.works a:nth-child(2):hover .cover{\r\n\tbackground: rgba(205,179,128,.6);\r\n}\r\n.works a:nth-child(3):hover .cover{\r\n\tbackground: rgba(230,155,3,.6);\r\n}\r\n.works a:nth-child(4):hover .cover{\r\n\tbackground: rgba(209,73,78,.6);\r\n}\r\n.works a:hover .title{\r\n\ttop: 40%;\r\n}\r\n.works a:hover .desc{\r\n\ttop: 60%;\r\n\topacity: 1;\r\n}\r\n.skills .echarts{\r\n\twidth:600px;\r\n\theight:600px;\r\n\tmargin: 100px auto;\r\n}\r\n.skills .content{\r\n\tpadding: 20px 5%;\r\n\tbackground: #eee;\r\n}\r\n.skills .content .item{\r\n\tbox-sizing: border-box;\r\n\tfloat: left;\r\n\twidth: 50%;\r\n}\r\n.skills .content .item:first-child{\r\n\tpadding-right: 10%;\r\n}\r\n.skills .content ul li{\r\n\tline-height: 28px;\r\n}\r\n.contact .code-wrap{\r\n\tpadding: 20px 0 50px;\r\n\tborder-bottom: 2px solid #000;\r\n}\r\n.contact .code{\r\n\tfloat: left;\r\n\ttext-align:center;\r\n\twidth: 50%;\r\n}\r\n.contact .code img{\r\n\twidth: 60%;\r\n}\r\n\r\n@media(max-width: 1440px){\r\n\t.skills .content ul li{\r\n\t\tfont-size: 14px;\r\n\t\tline-height: 20px;\r\n\t}\r\n}\r\n@media(max-width: 1200px){\r\n\t.information p{\r\n\t\twidth: 80%;\r\n\t}\r\n}\r\n@media(max-width: 992px){\r\n\taside{\r\n\t\tleft: -245px;\r\n\t\topacity: .9;\r\n\t\tz-index: 100;\r\n\t}\r\n\taside:after{\r\n\t\tcontent: \"\";\r\n\t\tposition: absolute;\r\n\t\tleft:100%;\r\n\t\ttop:50%;\r\n\t\twidth: 0;\r\n\t\theight: 0;\r\n\t\tborder-width:25px 10px;\r\n\t\tborder-style: solid;\r\n\t\tborder-color: transparent transparent transparent #123555;\r\n\t\ttransform: translateY(-50%);\r\n\t}\r\n\taside:hover{\r\n\t\tleft:0;\r\n\t}\r\n\t.information{\r\n\t\tmargin-left: 0;\r\n\t}\r\n\t.main{\r\n\t\tpadding-left: 0;\r\n\t}\r\n}\r\n@media(max-width: 768px){\r\n\taside{\r\n\t\tposition: fixed;\r\n\t\ttop:0;\r\n\t\tleft: 0;\r\n\t\tright: 0;\r\n\t\twidth: 100%;\r\n\t\theight: 50px;\r\n\t\tpadding:5px 20px;\r\n\t\topacity: 1;\r\n\t\ttransition: none;\r\n\t}\r\n\taside:after{\r\n\t\tdisplay: none;\r\n\t}\r\n\taside .header-img{\r\n\t\tposition: relative;\r\n\t\tfloat: left;\r\n\t\twidth:50px;\r\n\t\theight: 50px; \r\n\t\tmargin-right: 25px;\r\n\t\toverflow: hidden;\r\n\t}\r\n\taside .header-img img{\r\n\t\tposition: absolute;\r\n\t\tleft:0;\r\n\t\ttop:-7px;\r\n\t\twidth: 50px;\r\n\t}\r\n\taside .myname{\r\n\t\tfloat: left;\r\n\t\tfont-size: 25px;\r\n\t\tline-height: 50px;\r\n\t\tmargin:0;\r\n\t}\r\n\t\r\n\taside .suspension{\r\n\t\tposition: fixed;\r\n\t\ttop:60px;\r\n\t\tleft: 0;\r\n\t\tbottom: 0;\r\n\t\tright: 0;\r\n\t\tpadding:80px 25px 0;\r\n\t\tz-index: 50;\r\n\t\tbackground: rgba(0,0,0,.8);\r\n\t\tdisplay: none;\r\n\t}\r\n\t\r\n\taside .suspension .menu{\r\n\t\tmargin-left: 30px;\r\n\t\tline-height: 30px;\r\n\t}\r\n\taside .suspension .menu li a{\r\n\t\tfont-size: 18px;\r\n\t}\r\n\taside  .menu .num{\r\n\t\tcolor:#fff;\r\n\t}\r\n\taside .minbtn-wrap{\r\n\t\tposition: absolute;\r\n\t\ttop:50%;\r\n\t\tright: 70px;\r\n\t\twidth: 35px;\r\n\t\theight: 24px;\r\n\t\ttransform: translateY(-50%);\r\n\t\tcursor: pointer;\r\n\t}\r\n\taside .minbtn{\r\n\t\twidth: 100%;\r\n\t\theight: 4px;\r\n\t\tmargin-top:10px; \r\n\t\tbackground: #fff;\r\n\t\tborder-radius: 5px;\r\n\t\ttransition:  all .2s;\r\n\t}\r\n\taside .minbtn:before, aside .minbtn:after{\r\n\t\tcontent: \"\";\r\n\t\tposition: absolute;\r\n\t\twidth: 35px;\r\n\t\theight: 4px;\r\n\t\tbackground: #fff;\r\n\t\tborder-radius: 5px;\r\n\t\ttransition:  all .2s;\r\n\t}\r\n\taside .minbtn:before{\r\n\t\tleft: 0;\r\n\t\ttop:0;\r\n\t}\r\n\taside .minbtn:after{\r\n\t\tleft: 0;\r\n\t\tbottom:0;\r\n\t}\r\n\taside.active .suspension{\r\n\t\tdisplay: block;\r\n\t}\r\n\taside.active .minbtn{\r\n\t\ttransform: rotate(135deg);\r\n\t}\r\n\taside.active .minbtn:before{\r\n\t\ttransform: rotate(90deg);\r\n\t}\r\n\t.information h1{\r\n\t\tmargin-top: 65px;\r\n\t}\r\n\t.information p{\r\n\t\twidth: 95%;\r\n\t\tline-height: 30px;\r\n\t\tfont-size: 16px;\r\n\t}\r\n\t.information p.typer{\r\n\t\tfont-size: 14px;\r\n\t}\r\n\t.works .cover{\r\n\t\tdisplay: none;\r\n\t}\r\n\t.works a{\r\n\t\tpadding: 35px 0;\r\n\t\tborder-bottom:2px solid #000;\r\n\t\tborder:none;\r\n\t}\r\n\t.works a:last-child{\r\n\t\tmargin-bottom: 0px;\r\n\t}\r\n\t.works .title{\r\n\t\tdisplay: block;\r\n\t\tposition: static;\r\n\t\ttransform: none;\r\n\t\tfont-size: 20px;\r\n\t\tcolor:#333;\r\n\t}\r\n\t.works .desc{\r\n\t\tdisplay: block;\r\n\t\tposition: static;\r\n\t\tmargin:8px 0;\r\n\t\ttransform: none;\r\n\t\tfont-size: 12px;\r\n\t\tcolor:#333;\r\n\t\topacity: 1;\r\n\t}\r\n\t.skills .content .item{\r\n\t\tfloat: none;\r\n\t\twidth: 100%;\r\n\t\tpadding: 10px;\r\n\t}\r\n\t\r\n}\r\n\r\n", ""]);
 
 	// exports
 
@@ -248,6 +232,12 @@
 
 /***/ },
 /* 4 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "./dist/img/6b231e1706653a1f0655c8c2f36032f5.jpg";
+
+/***/ },
+/* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -499,16 +489,16 @@
 
 
 /***/ },
-/* 5 */
+/* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(6);
+	var content = __webpack_require__(7);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(4)(content, {});
+	var update = __webpack_require__(5)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -525,7 +515,7 @@
 	}
 
 /***/ },
-/* 6 */
+/* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(3)();
@@ -533,37 +523,37 @@
 
 
 	// module
-	exports.push([module.id, "\n@font-face {font-family: \"iconfont\";\n  src: url(" + __webpack_require__(7) + "); /* IE9*/\n  src: url(" + __webpack_require__(7) + "#iefix) format('embedded-opentype'), \n  url(" + __webpack_require__(8) + ") format('woff'), \n  url(" + __webpack_require__(9) + ") format('truetype'), \n  url(" + __webpack_require__(10) + "#iconfont) format('svg'); /* iOS 4.1- */\n}\n\n.iconfont {\n  font-family:\"iconfont\" !important;\n  font-size:30px;\n  font-style:normal;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n}\n\n.icon-book:before { \n  content: \"\\E605\"; \n\n\n}\n\n.icon-github:before { \n  content: \"\\E69F\"; \n}\n\n.icon-qq:before { \n  content: \"\\E627\"; \n}\n\n.icon-email:before { \n  content: \"\\E724\";\n  \n}\n\n", ""]);
+	exports.push([module.id, "\n@font-face {font-family: \"iconfont\";\n  src: url(" + __webpack_require__(8) + "); /* IE9*/\n  src: url(" + __webpack_require__(8) + "#iefix) format('embedded-opentype'), \n  url(" + __webpack_require__(9) + ") format('woff'), \n  url(" + __webpack_require__(10) + ") format('truetype'), \n  url(" + __webpack_require__(11) + "#iconfont) format('svg'); /* iOS 4.1- */\n}\n\n.iconfont {\n  font-family:\"iconfont\" !important;\n  font-size:30px;\n  font-style:normal;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n}\n\n.icon-book:before { \n  content: \"\\E605\"; \n\n\n}\n\n.icon-github:before { \n  content: \"\\E69F\"; \n}\n\n.icon-qq:before { \n  content: \"\\E627\"; \n}\n\n.icon-email:before { \n  content: \"\\E724\";\n  \n}\n\n", ""]);
 
 	// exports
 
 
 /***/ },
-/* 7 */
+/* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "./dist/fonts/iconfont.eot";
 
 /***/ },
-/* 8 */
+/* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "./dist/fonts/iconfont.woff";
 
 /***/ },
-/* 9 */
+/* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "./dist/fonts/iconfont.ttf";
 
 /***/ },
-/* 10 */
+/* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "./dist/fonts/iconfont.svg";
 
 /***/ },
-/* 11 */
+/* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(module) {"use strict";
@@ -3991,7 +3981,7 @@
 			});
 		}), n.fn.size = function () {
 			return this.length;
-		}, n.fn.andSelf = n.fn.addBack, "function" == "function" && __webpack_require__(13) && !(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function () {
+		}, n.fn.andSelf = n.fn.addBack, "function" == "function" && __webpack_require__(14) && !(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function () {
 			return n;
 		}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 		var Kb = a.jQuery,
@@ -4000,10 +3990,10 @@
 			return a.$ === n && (a.$ = Lb), b && a.jQuery === n && (a.jQuery = Kb), n;
 		}, (typeof b === "undefined" ? "undefined" : _typeof(b)) === U && (a.jQuery = a.$ = n), n;
 	});
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12)(module)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(13)(module)))
 
 /***/ },
-/* 12 */
+/* 13 */
 /***/ function(module, exports) {
 
 	module.exports = function(module) {
@@ -4019,7 +4009,7 @@
 
 
 /***/ },
-/* 13 */
+/* 14 */
 /***/ function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(__webpack_amd_options__) {module.exports = __webpack_amd_options__;
@@ -4027,7 +4017,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, {}))
 
 /***/ },
-/* 14 */
+/* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(global) {"use strict";
@@ -10339,13 +10329,6 @@
 	  });var J = t("echarts");return J.graphic = t("echarts/util/graphic"), J.number = t("echarts/util/number"), J.format = t("echarts/util/format"), t("echarts/chart/radar"), t("echarts/component/polar"), t("echarts/component/title"), t("echarts/component/legend"), t("echarts/component/tooltip"), t("zrender/vml/vml"), J;
 	});
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
-
-/***/ },
-/* 15 */,
-/* 16 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "./dist/img/061fe3055bd725cd04d4e928a5dd8c2f.jpg";
 
 /***/ }
 /******/ ]);
