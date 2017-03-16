@@ -348,10 +348,12 @@ aside .project-address{
 	position: absolute;
 	top:50%;
 	left: 50%;
+	width: 75%;
 	transform: translate(-50%,-50%);
 	z-index: 2;
 	font-size: 30px;
 	line-height: 30px;
+	text-align: center;
 	color:#fff;
 	transition: all .3s;
 }
@@ -366,6 +368,7 @@ aside .project-address{
 	line-height: 16px;
 	color:#fff;
 	opacity: 0;
+	text-align: center;
 	transition: all .6s ease-out;
 }
 .works a:nth-child(1):hover .cover{
