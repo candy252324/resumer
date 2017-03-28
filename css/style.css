@@ -393,7 +393,7 @@ aside .project-address{
 .skills .echarts{
 	width:600px;
 	height:600px;
-	margin: 100px auto;
+	margin: 0 auto;
 }
 .skills .content{
 	padding: 20px 5%;

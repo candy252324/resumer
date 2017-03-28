@@ -76,9 +76,9 @@ var option = {
         text: ''
     },
     tooltip: {},
-    legend: {
-        data: ['能力', '兴趣']
-    },
+    // legend: {
+    //     data: ['能力', '兴趣']
+    // },
     radar: {
         // shape: 'circle',
         indicator: [
@@ -101,10 +101,6 @@ var option = {
                 value : [90, 80, 75, 80, 60, 70, 70, 60],
                 name : '能力'
             },
-            {
-                value : [80, 95, 100, 85, 75, 75, 80, 75],
-                name : '兴趣'
-            }
         ]
     }]
 };
